@@ -45,7 +45,7 @@ class Signin extends Ntask {
     }
 
     signupClick() {
-        const signup = this.querySelector('[data-signup]')
+        const signup = this.body.querySelector('[data-signup]')
         signup.addEventListener('click', e => {
             e.preventDefault()
             this.emit('signup')

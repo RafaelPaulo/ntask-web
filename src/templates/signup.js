@@ -1,4 +1,4 @@
-export.render = () => {
+exports.render = () => {
     return `
         <form>
             <div class="list">
