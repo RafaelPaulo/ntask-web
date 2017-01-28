@@ -7,8 +7,8 @@ exports.render = () => {
                 </label>
             </div>
             <div class="padding">
-                <button class="button button-positive buttom-block">
-                    <i class="ion-compose"></i>Salvar
+                <button class="button button-positive button-block">
+                    <i class="ion-compose"></i> Save
                 </button>
             </div>
     </form>`

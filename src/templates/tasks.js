@@ -13,7 +13,7 @@ const renderTask = tasks => {
     }).join('')
 }
 
-export.render = tasks => {
+exports.render = tasks => {
     if(tasks && tasks.length) {
         return `<ul class="list">${renderTasks(tasks)}</ul>`
     }

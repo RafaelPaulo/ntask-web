@@ -2,7 +2,7 @@ import Ntask from '../ntask.js'
 import Template from '../templates/tasks.js'
 
 class Tasks extends Ntask {
-    contructor(body) {
+    constructor(body) {
         super()
         this.body = body
     }
@@ -18,22 +18,22 @@ class Tasks extends Ntask {
             method: 'GET',
             url: `${this.URL}/tasks`,
             json: true,
-            header: {
+            headers: {
                 authorization: localStorage.getItem('token')
             }
-            this.request(opts, (err, resp, data) => {
-                if(err) {
-                    this.emit('error', err)
-                }
-                else {
-                    this.body.innerHTML = Template.render(data)
-                    this.addEventListener()
-                }
-            })
         }
+        this.request(opts, (err, resp, data) => {
+            if(err) {
+                this.emit('error', err)
+            }
+            else {
+                this.body.innerHTML = Template.render(data)
+                this.addEventListener()
+            }
+        })
     }
     taskDoneCheckbox() {
-        const done = this.body.querySelectorAll('[data-done]')
+        const dones = this.body.querySelectorAll('[data-done]')
         for(let i = 0, max = dones.length; i < max; i++) {
             dones[i].addEventListener('click', (e) => {
                 e.preventDefault()
@@ -41,8 +41,8 @@ class Tasks extends Ntask {
                 const done = e.target.getAttribute('data-task-done')
                 const opts = {
                     method: 'PUT',
-                    url: `${this.URL}/tasks/${id}`
-                    header: {
+                    url: `${this.URL}/tasks/${id}`,
+                    headers: {
                         authorization: localStorage.getItem('token'),
                         'Content-Type': 'application/json'
                     },

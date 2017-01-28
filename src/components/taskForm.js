@@ -1,7 +1,7 @@
 import Ntask from '../ntask.js'
 import Template from '../templates/taskForm.js'
 
-class taskForm extends Ntask {
+class TaskForm extends Ntask {
     constructor(body) {
         super()
         this.body = body
@@ -23,7 +23,7 @@ class taskForm extends Ntask {
                 method: 'POST',
                 url: `${this.URL}/tasks`,
                 json: true,
-                header: {
+                headers: {
                     authorization: localStorage.getItem('token')
                 },
                 body: {
