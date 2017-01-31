@@ -8,7 +8,7 @@ class TaskForm extends Ntask {
     }
     render() {
         this.body.innerHTML = Template.render()
-        this.body.querySelector('[data-task]')
+        this.body.querySelector('[data-task]').focus()
         this.addEventListener()
     }
     addEventListener() {

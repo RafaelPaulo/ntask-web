@@ -44,16 +44,14 @@ class App {
         })
     }
     tasksEvents() {
-        this.tasks.on('error', () => alert('Error trying to list') )
-        this.tasks.on('remove-error',  () => alert('Error trying to exclude') )
-        this.tasks.on('update-error',  () => alert('Error trying to update') )
-        this.tasks.on('remove', () => this.tasks.render() )
-        this.tasks.on('update', () => this.tasks.render() )
+        this.tasks.on('error', () => alert('Error trying to list'))
+        this.tasks.on('remove-error',  () => alert('Error trying to exclude'))
+        this.tasks.on('update-error',  () => alert('Error trying to update'))
+        this.tasks.on('remove', () => this.tasks.render())
+        this.tasks.on('update', () => this.tasks.render())
     }
     taskFormEvents() {
-        this.taskForm.on('error', () => {
-            alert('Error trying to insert task')
-        })
+        this.taskForm.on('error', () => alert('Error trying to insert task'))
         this.taskForm.on('submit', () => {
             this.menu.render('tasks')
             this.tasks.render()

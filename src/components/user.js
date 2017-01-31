@@ -22,15 +22,12 @@ class User extends Ntask {
             }
         }
         this.request(opts, (err, resp, data) => {
+            console.log(data);
             if(err || resp.status === 412) {
                 this.emit('error', err)
             }
             else {
-                console.log(' ==============> FOI');
-                console.log(data);
                 this.body.innerHTML = Template.render(data)
-                console.log(' ==============> END OF FOI');
-
                 this.addEventListener()
             }
         })

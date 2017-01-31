@@ -1,6 +1,5 @@
 exports.render = user => {
-    return `
-    <div class="list">
+    return ` <div class="list">
         <label class="item item-input item-stacked-label">
             <span class="input-label">Name</span>
             <small class="dark">${user.name}</small>
@@ -12,8 +11,7 @@ exports.render = user => {
     </div>
     <div class="padding">
         <button data-remove-account class="button button-assertive button-block">
-            <i class="ion-trash-a"></i> Excluir conta
+          <i class="ion-trash-a"></i> Delete account
         </button>
-    </div>
-    `
+    </div>`
 }

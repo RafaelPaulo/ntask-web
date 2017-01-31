@@ -680,7 +680,7 @@ var App = function () {
             var _this4 = this;
 
             this.taskForm.on('error', function () {
-                alert('Error trying to insert task');
+                return alert('Error trying to insert task');
             });
             this.taskForm.on('submit', function () {
                 _this4.menu.render('tasks');
@@ -788,6 +788,7 @@ var Menu = function (_Ntask) {
                     e.preventDefault();
                     var link = e.target.parentElement;
                     var path = link.getAttribute('data-path');
+                    console.log('>>>>>>>>> path: ' + path);
                     _this2.emit('click', path);
                 });
             }
@@ -1023,7 +1024,7 @@ var TaskForm = function (_Ntask) {
         key: 'render',
         value: function render() {
             this.body.innerHTML = _taskForm2.default.render();
-            this.body.querySelector('[data-task]');
+            this.body.querySelector('[data-task]').focus();
             this.addEventListener();
         }
     }, {
@@ -1258,6 +1259,7 @@ var User = function (_Ntask) {
                 }
             };
             this.request(opts, function (err, resp, data) {
+                console.log(data);
                 if (err || resp.status === 412) {
                     _this2.emit('error', err);
                 } else {
@@ -1374,7 +1376,7 @@ exports.render = function () {
 },{}],15:[function(require,module,exports){
 'use strict';
 
-var renderTask = function renderTask(tasks) {
+var renderTasks = function renderTasks(tasks) {
     return tasks.map(function (task) {
         var done = task.done ? 'ios-checkmark' : 'ios-circle-outline';
         return '\n        <li class="item item-icon-left item-button-right">\n            <i class="icon ion-' + done + '" data-done data-task-done="' + (task.done ? 'done' : '') + '" data-task-id="' + task.id + '"> </i>\n            ' + task.title + '\n            <button data-remove data-task-id="' + task.id + '" class="button button-assertive">\n                <i class="ion-trash-a"></i>\n            </button>\n        </li>\n        ';
@@ -1392,7 +1394,7 @@ exports.render = function (tasks) {
 "use strict";
 
 exports.render = function (user) {
-    return "\n    <div class=\"list\">\n        <label class=\"item item-input item-stacked-label\">\n            <span class=\"input-label\">Name</span>\n            <small class=\"dark\">" + user.name + "</small>\n        </label>\n        <label class=\"item item-input item-stacked-label\">\n            <span class=\"input-label\">Email</span>\n            <small class=\"dark\">" + user.email + "</small>\n        </label>\n    </div>\n    <div class=\"padding\">\n        <button data-remove-account class=\"button button-assertive button-block\">\n            <i class=\"ion-trash-a\"></i> Excluir conta\n        </button>\n    </div>\n    ";
+    return " <div class=\"list\">\n        <label class=\"item item-input item-stacked-label\">\n            <span class=\"input-label\">Name</span>\n            <small class=\"dark\">" + user.name + "</small>\n        </label>\n        <label class=\"item item-input item-stacked-label\">\n            <span class=\"input-label\">Email</span>\n            <small class=\"dark\">" + user.email + "</small>\n        </label>\n    </div>\n    <div class=\"padding\">\n        <button data-remove-account class=\"button button-assertive button-block\">\n          <i class=\"ion-trash-a\"></i> Delete account\n        </button>\n    </div>";
 };
 
 },{}],17:[function(require,module,exports){

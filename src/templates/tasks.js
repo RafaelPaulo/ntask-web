@@ -1,4 +1,4 @@
-const renderTask = tasks => {
+const renderTasks = tasks => {
     return tasks.map(task => {
         let done = task.done ? 'ios-checkmark' : 'ios-circle-outline'
         return `
